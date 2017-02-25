@@ -109,7 +109,7 @@ window.onload = function () {
     var newGame = document.getElementById("New Game");
 
     var gb = new GameBoard();
-    var playerOne = new randomAgent();
+    var playerOne = new Agent();
     var playerTwo = new Agent();
 
     newGame.onclick = function () {
