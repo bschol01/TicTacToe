@@ -3,6 +3,7 @@ var Agent = function () {
 
 };
 
+/*Selects and returns the move that the agent is going to make. */
 Agent.prototype.selectMove = function(board) {
 	var player;
 	var temp = 0;
@@ -40,6 +41,7 @@ Agent.prototype.selectMove = function(board) {
 	return move;
 };
 
+// Scores the outcomes of the possible moves and returns them
 Agent.prototype.minimax = function(currentMove, player, depth, board, X, O) {
 	var maxBestScore = -10;
 	var minBestScore = 10;
@@ -64,6 +66,7 @@ Agent.prototype.minimax = function(currentMove, player, depth, board, X, O) {
 	
 };
 
+// Scores the current move based on the depth of the tree and which player won first
 Agent.prototype.score = function(player, endGame, depth) {
 	
 		var score;
@@ -83,6 +86,7 @@ Agent.prototype.score = function(player, endGame, depth) {
 		return score;
 };
 
+// Checks to make sure that the current move is valid
 Agent.prototype.checkMove = function (cell, player, X, O) {
     if (this.checkCellFree(cell, X, O)) {
         this.player ? X.push(cell) : O.push(cell);
@@ -91,6 +95,7 @@ Agent.prototype.checkMove = function (cell, player, X, O) {
     return this.checkGameOver(X, O);
 };
 
+// Checks if the game is over
 Agent.prototype.checkGameOver = function (X, O) {
     var Xwin = false;
     var Owin = false;
@@ -120,6 +125,7 @@ Agent.prototype.checkGameOver = function (X, O) {
     return 0;
 };
 
+// Checks if the current cell is available
 Agent.prototype.checkCellFree = function (cell, X, O) {
     if (X.indexOf(cell) < 0 && O.indexOf(cell) < 0) return true;
     else return false;
